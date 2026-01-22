@@ -1,0 +1,3126 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YU-RISE | Spiritual Healing & Tarot Reading with Kak Yuri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-purple: #6A5ACD;
+            --light-purple: #9370DB;
+            --pastel-purple: #D8BFD8;
+            --rose-gold: #E0BFB8;
+            --gold: #FFD700;
+            --light-gold: #FFF8DC;
+            --dark-bg: #2D1B69;
+            --medium-bg: #4B0082;
+            --text-light: #F8F8FF;
+            --text-muted: #D3D3D3;
+            --success: #32CD32;
+            --warning: #FFA500;
+            --danger: #FF4500;
+            --available: #FFFFFF;
+            --booked: #E0BFB8;
+            --closed: #696969;
+            --limited: #FF6B6B;
+            --holiday: #90EE90;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(147, 112, 219, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(224, 191, 184, 0.1) 0%, transparent 20%),
+                url('https://i.pinimg.com/736x/9d/45/ee/9d45ee5e6be74f099ea9acb0f4f17e5c.jpg'),
+                url('https://i.pinimg.com/736x/2d/78/ba/2d78ba2ea4050835dcf6a6b8c5e6c6f3.jpg');
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* Language Selection */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: rgba(106, 90, 205, 0.8);
+            color: white;
+            border: 1px solid var(--rose-gold);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .lang-btn:hover {
+            background: var(--rose-gold);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: var(--rose-gold);
+            color: var(--dark-bg);
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--rose-gold);
+        }
+
+        /* Header & Title */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, var(--rose-gold), var(--light-purple), var(--pastel-purple), var(--rose-gold));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 3s infinite linear, bounce 2s infinite alternate;
+            text-shadow: 0 0 20px rgba(224, 191, 184, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-title::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-15deg);
+            animation: shine 5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20%, 100% { left: 100%; }
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--pastel-purple);
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 30px;
+            background: rgba(45, 27, 105, 0.7);
+            border-radius: 20px;
+            border: 1px solid var(--rose-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--rose-gold);
+            box-shadow: 0 0 30px var(--rose-gold);
+            margin-bottom: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .bio {
+            text-align: center;
+            max-width: 700px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            padding: 20px;
+            background: rgba(106, 90, 205, 0.2);
+            border-radius: 15px;
+            border-left: 4px solid var(--rose-gold);
+        }
+
+        .bio strong {
+            color: var(--rose-gold);
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(106, 90, 205, 0.8);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border: 1px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background: var(--rose-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(224, 191, 184, 0.4);
+            border-color: var(--rose-gold);
+        }
+
+        .nav-btn.active {
+            background: var(--rose-gold);
+            color: var(--dark-bg);
+            font-weight: bold;
+            box-shadow: 0 0 20px var(--rose-gold);
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--rose-gold);
+            text-shadow: 0 0 10px rgba(224, 191, 184, 0.5);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background: rgba(45, 27, 105, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid var(--light-purple);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--rose-gold), var(--light-purple));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(106, 90, 205, 0.3);
+            border-color: var(--rose-gold);
+        }
+
+        .service-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--rose-gold);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-series {
+            font-style: italic;
+            color: var(--pastel-purple);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .service-price {
+            background: rgba(106, 90, 205, 0.3);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid var(--rose-gold);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-desc {
+            color: var(--text-muted);
+        }
+
+        .price-amount {
+            color: var(--rose-gold);
+            font-weight: 500;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--pastel-purple);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Calendar Section */
+        .calendar-container {
+            background: rgba(45, 27, 105, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.pixabay.com/photo/2017/09/07/08/57/koi-2724594_1280.png');
+            background-size: 200px;
+            opacity: 0.05;
+            z-index: 0;
+            animation: moveKoi 30s infinite linear;
+        }
+
+        @keyframes moveKoi {
+            0% { background-position: -200px -200px; }
+            100% { background-position: calc(100% + 200px) calc(100% + 200px); }
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .calendar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .calendar-nav-btn {
+            background: rgba(106, 90, 205, 0.7);
+            color: white;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-nav-btn:hover {
+            background: var(--gold);
+            color: var(--dark-bg);
+            transform: scale(1.1);
+        }
+
+        .month-year {
+            font-size: 1.5rem;
+            color: var(--light-gold);
+            font-weight: 500;
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .calendar th {
+            background: rgba(106, 90, 205, 0.7);
+            color: var(--light-gold);
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+        }
+
+        .calendar td {
+            width: calc(100% / 7);
+            height: 80px;
+            padding: 10px;
+            text-align: center;
+            vertical-align: top;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar td:hover {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .calendar-day {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .day-available {
+            background-color: var(--available);
+            color: var(--dark-bg);
+            border-color: var(--light-purple);
+        }
+
+        .day-booked {
+            background-color: var(--booked);
+            color: var(--dark-bg);
+            border-color: var(--rose-gold);
+        }
+
+        .day-closed {
+            background-color: var(--closed);
+            color: var(--text-light);
+            border-color: #555;
+        }
+
+        .day-limited {
+            background-color: var(--limited);
+            color: var(--dark-bg);
+            border-color: var(--danger);
+        }
+
+        .day-holiday {
+            background-color: var(--holiday);
+            color: var(--dark-bg);
+            border-color: var(--success);
+        }
+
+        .day-status {
+            font-size: 0.7rem;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .day-notes {
+            font-size: 0.7rem;
+            margin-top: 3px;
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        .calendar-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Booking Form */
+        .booking-container {
+            background: rgba(45, 27, 105, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid var(--rose-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-top: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(224, 191, 184, 0.3);
+        }
+
+        .form-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--rose-gold);
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--rose-gold);
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--pastel-purple);
+            font-weight: 500;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(106, 90, 205, 0.3);
+            border: 1px solid var(--light-purple);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--rose-gold);
+            box-shadow: 0 0 10px rgba(224, 191, 184, 0.5);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 15px;
+        }
+
+        .checkbox-item input[type="checkbox"], 
+        .checkbox-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--rose-gold);
+        }
+
+        .service-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-option-card {
+            background: rgba(106, 90, 205, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-option-card:hover {
+            border-color: var(--rose-gold);
+            transform: translateY(-5px);
+        }
+
+        .service-option-card.selected {
+            border-color: var(--rose-gold);
+            background: rgba(224, 191, 184, 0.1);
+            box-shadow: 0 5px 15px rgba(224, 191, 184, 0.2);
+        }
+
+        .option-title {
+            font-weight: 500;
+            color: var(--rose-gold);
+            margin-bottom: 5px;
+        }
+
+        .option-price {
+            color: var(--pastel-purple);
+            font-size: 0.9rem;
+        }
+
+        .price-calculation {
+            background: rgba(106, 90, 205, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid var(--light-purple);
+        }
+
+        .calculation-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .calculation-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--rose-gold);
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 2px solid var(--rose-gold);
+        }
+
+        .calculation-label {
+            color: var(--text-muted);
+        }
+
+        .calculation-value {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--light-purple);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: var(--rose-gold);
+            background: rgba(224, 191, 184, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 2.5rem;
+            color: var(--pastel-purple);
+            margin-bottom: 15px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(90deg, var(--rose-gold), var(--light-purple));
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 30px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 40px auto 0;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(224, 191, 184, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background: rgba(45, 27, 105, 0.9);
+            border-top: 1px solid var(--rose-gold);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            color: var(--pastel-purple);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--rose-gold);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--success);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            transform: translateX(150%);
+            transition: transform 0.5s ease;
+            max-width: 350px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+
+        .notification.warning {
+            background: var(--warning);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar td {
+                height: 60px;
+                padding: 5px;
+            }
+            
+            .calendar-day {
+                font-size: 1rem;
+            }
+            
+            .booking-container {
+                padding: 20px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .service-options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 80%;
+            }
+            
+            .calendar th, .calendar td {
+                padding: 5px 2px;
+                font-size: 0.8rem;
+            }
+            
+            .calendar-day {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Hydrangea Animation */
+        .hydrangea {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, var(--pastel-purple), var(--light-purple));
+            border-radius: 50%;
+            opacity: 0.7;
+            z-index: 0;
+            animation: floatHydrangea 15s infinite linear;
+        }
+
+        @keyframes floatHydrangea {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 50px) rotate(90deg); }
+            50% { transform: translate(50px, 100px) rotate(180deg); }
+            75% { transform: translate(-50px, 50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selection -->
+    <div class="language-selector">
+        <button class="lang-btn active" id="lang-en">EN</button>
+        <button class="lang-btn" id="lang-id">ID</button>
+        <button class="lang-btn" id="lang-kr">KR</button>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="title-container">
+            <h1 class="main-title">YU-RISE</h1>
+            <p class="subtitle" id="subtitle">Spiritual Healing & Tarot Reading with Kak Yuri</p>
+        </div>
+        
+        <div class="profile-section">
+            <img src="https://i.ibb.co.com/SwS50Jkf/IMG-0457.jpg" alt="Kak Yuri" class="profile-img">
+            <div class="bio" id="bio-text">
+                Hi, I'm <strong>Kak Yuri</strong>! Starting in 2024, I'm here as a survivor who's been through life's darkest moments - toxic relationships, career struggles, and personal battles. I don't want you to get stuck where I was, feeling lost without a way out. As a tarot reader, face reader, palm reader, past life reader, and more, I'm here to help you find clarity and create a better life. I also offer ritual salts to attract love, abundance, and cleansing energy. Let's navigate your path together!
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-container">
+            <button class="nav-btn active" data-section="services">Services & Pricing</button>
+            <button class="nav-btn" data-section="booking">Book a Session</button>
+            <button class="nav-btn" data-section="calendar">Availability Calendar</button>
+            <button class="nav-btn" data-section="about">About Me</button>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="content-section active">
+        <h2 class="section-title" id="services-title">Services & Pricing</h2>
+        
+        <div class="services-grid" id="services-container">
+            <!-- Services will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="content-section">
+        <h2 class="section-title" id="booking-title">Book Your Session</h2>
+        
+        <div class="booking-container">
+            <form id="booking-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3 class="form-title" id="personal-info-title">Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullname" class="form-label" id="fullname-label">Full Name</label>
+                            <input type="text" id="fullname" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label" id="email-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="form-label" id="phone-label">WhatsApp/Telegram Number</label>
+                            <input type="tel" id="phone" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location" class="form-label" id="location-label">City & Country</label>
+                            <input type="text" id="location" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birthdate" class="form-label" id="birthdate-label">Date of Birth (DD/MM/YYYY)</label>
+                            <input type="text" id="birthdate" class="form-input" placeholder="DD/MM/YYYY" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" id="intl-label">Are you booking from outside Indonesia?</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="international" name="international">
+                                    <label for="international" id="intl-check-label">Yes, I'm from outside Indonesia (+5% fee)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Selection -->
+                <div class="form-section">
+                    <h3 class="form-title" id="service-select-title">Select Your Service</h3>
+                    <div class="form-group">
+                        <label for="service-type" class="form-label" id="service-type-label">Service Type</label>
+                        <select id="service-type" class="form-select" required>
+                            <option value="" id="select-default">-- Please select a service --</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div id="service-options-container">
+                        <!-- Service options will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="form-group" id="addon-container" style="display: none;">
+                        <label class="form-label" id="addon-label">Additional Options</label>
+                        <div class="checkbox-group" id="addon-options">
+                            <!-- Addon options will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media Discount -->
+                <div class="form-section">
+                    <h3 class="form-title" id="discount-title">Loyal Follower Discount (20%)</h3>
+                    <p id="discount-desc">Get 20% off if you follow me on social media! Upload screenshot as proof.</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="discount-ig" name="discount">
+                            <label for="discount-ig" id="discount-ig-label">I follow Instagram @yuri_spiritual</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="discount-tiktok1" name="discount">
+                            <label for="discount-tiktok1" id="discount-tiktok1-label">I follow TikTok @yuri_spiritual</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="discount-tiktok2" name="discount">
+                            <label for="discount-tiktok2" id="discount-tiktok2-label">I follow TikTok @matrix_yuri</label>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-area" id="discount-upload" onclick="document.getElementById('discount-file').click()">
+                        <div class="upload-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <p id="upload-text">Click to upload screenshot proof (PNG, JPG, Max 5MB)</p>
+                        <input type="file" id="discount-file" accept="image/*" style="display: none;" onchange="handleDiscountUpload(event)">
+                    </div>
+                    <div id="discount-filename" style="margin-top: 10px; color: var(--pastel-purple); font-size: 0.9rem;"></div>
+                </div>
+                
+                <!-- Donation -->
+                <div class="form-section">
+                    <h3 class="form-title" id="donation-title">Voluntary Donation (Optional)</h3>
+                    <p id="donation-desc">I believe in giving back. Add a donation to support those in need.</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="donation-option" name="donation">
+                            <label for="donation-option" id="donation-option-label">Yes, I want to add a donation</label>
+                        </div>
+                    </div>
+                    
+                    <div id="donation-details" style="display: none; margin-top: 20px;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" id="donation-type-label">Donation Type</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="donation-disaster" name="donation-type" value="disaster">
+                                        <label for="donation-disaster" id="donation-disaster-label">Natural Disaster Relief</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="donation-children" name="donation-type" value="children">
+                                        <label for="donation-children" id="donation-children-label">Underprivileged Children</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="radio" id="donation-needy" name="donation-type" value="needy">
+                                        <label for="donation-needy" id="donation-needy-label">People in Need</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="donation-amount" class="form-label" id="donation-amount-label">Donation Amount (IDR)</label>
+                                <input type="number" id="donation-amount" class="form-input" min="10000" value="10000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Price Calculation -->
+                <div class="price-calculation">
+                    <h3 style="color: var(--rose-gold); margin-bottom: 20px;" id="calculation-title">Price Calculation</h3>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="base-price-label">Base Service Price:</span>
+                        <span class="calculation-value" id="base-price-value">Rp 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="addon-price-label">Additional Options:</span>
+                        <span class="calculation-value" id="addon-price-value">Rp 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="intl-fee-label">International Fee (5%):</span>
+                        <span class="calculation-value" id="intl-fee-value">Rp 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="subtotal-label">Subtotal:</span>
+                        <span class="calculation-value" id="subtotal-value">Rp 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="discount-label">Discount (20%):</span>
+                        <span class="calculation-value" id="discount-value">- Rp 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="donation-label">Donation:</span>
+                        <span class="calculation-value" id="donation-value">Rp 0</span>
+                    </div>
+                    <div class="calculation-row">
+                        <span class="calculation-label" id="total-label">TOTAL PAYMENT:</span>
+                        <span class="calculation-value" id="total-value">Rp 0</span>
+                    </div>
+                </div>
+                
+                <!-- Payment & Upload -->
+                <div class="form-section">
+                    <h3 class="form-title" id="payment-title">Payment & Confirmation</h3>
+                    <p id="payment-desc">Please transfer the total amount to one of the following accounts:</p>
+                    
+                    <div style="background: rgba(106, 90, 205, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <h4 style="color: var(--rose-gold); margin-bottom: 10px;" id="bank-title">Bank Transfer (IDR)</h4>
+                        <p><strong>BCA:</strong> 094181861 a.n. Amalia Shifa Annisa</p>
+                        <p><strong>Mandiri:</strong> 1660007213838 a.n. Amalia Shifa Annisa</p>
+                        <p id="qris-text">QRIS (Domestic & International) will be sent via WhatsApp after booking</p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="transfer-date" class="form-label" id="transfer-date-label">Transfer Date</label>
+                            <input type="date" id="transfer-date" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transfer-amount" class="form-label" id="transfer-amount-label">Transfer Amount (IDR)</label>
+                            <input type="number" id="transfer-amount" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-area" id="payment-upload" onclick="document.getElementById('payment-file').click()">
+                        <div class="upload-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <p id="payment-upload-text">Click to upload payment proof (PNG, JPG, PDF, Max 10MB)</p>
+                        <input type="file" id="payment-file" accept="image/*,.pdf" style="display: none;" onchange="handlePaymentUpload(event)">
+                    </div>
+                    <div id="payment-filename" style="margin-top: 10px; color: var(--pastel-purple); font-size: 0.9rem;"></div>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn" id="submit-btn">Complete Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="content-section">
+        <h2 class="section-title" id="calendar-title">Availability Calendar 2026</h2>
+        
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <div>
+                    <h3 class="calendar-title" id="calendar-year">2026</h3>
+                    <div class="month-year" id="current-month-year">January 2026</div>
+                </div>
+                <div class="calendar-nav">
+                    <button class="calendar-nav-btn" id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                    <button class="calendar-nav-btn" id="today-btn">Today</button>
+                    <button class="calendar-nav-btn" id="next-month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <table class="calendar" id="calendar-table">
+                <thead>
+                    <tr>
+                        <th id="sun-header">Sun</th>
+                        <th id="mon-header">Mon</th>
+                        <th id="tue-header">Tue</th>
+                        <th id="wed-header">Wed</th>
+                        <th id="thu-header">Thu</th>
+                        <th id="fri-header">Fri</th>
+                        <th id="sat-header">Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <!-- Calendar will be populated by JavaScript -->
+                </tbody>
+            </table>
+            
+            <div class="calendar-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--available);"></div>
+                    <span id="legend-available">Available (5 regular + 3 express)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--booked);"></div>
+                    <span id="legend-booked">Fully Booked</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--limited);"></div>
+                    <span id="legend-limited">Limited Slots (1-3 left)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--closed);"></div>
+                    <span id="legend-closed">Past Date / Closed</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: var(--holiday);"></div>
+                    <span id="legend-holiday">Holiday / Special Day</span>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; text-align: center;">
+            <p id="calendar-note"><strong>Note:</strong> Each day has a maximum of 8 sessions (5 regular + 3 express). Booking is confirmed only after full payment verification.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+        <h2 class="section-title" id="about-title">About Kak Yuri</h2>
+        
+        <div style="max-width: 900px; margin: 0 auto; padding: 30px; background: rgba(45, 27, 105, 0.7); border-radius: 20px; border: 1px solid var(--rose-gold);">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--rose-gold); font-size: 1.8rem; margin-bottom: 20px;" id="journey-title">My Spiritual Journey</h3>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem; line-height: 1.8;" id="journey-text">
+                        Hey there! I'm Yuri, but you can call me <strong>Kak Yuri</strong>. My journey into the spiritual world began from a place of deep personal struggle. As a survivor of toxic relationships, career setbacks, and emotional trauma, I know what it feels like to be stuck in darkness without seeing a way out.
+                    </p>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem; line-height: 1.8;" id="journey-text2">
+                        In 2024, I decided to turn my pain into purpose. I immersed myself in various spiritual practices - tarot, face reading, palmistry, past life regression, and more. Each modality became a tool not just for divination, but for healing and empowerment.
+                    </p>
+                    <p style="margin-bottom: 15px; font-size: 1.1rem; line-height: 1.8;" id="journey-text3">
+                        My mission is simple: <strong>I don't want anyone to feel as lost as I once did.</strong> Whether you're navigating relationship challenges, career crossroads, or personal transformation, I'm here to help you find clarity and create the life you deserve.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <img src="https://i.ibb.co.com/SwS50Jkf/IMG-0457.jpg" alt="Kak Yuri" style="width: 100%; max-width: 350px; border-radius: 20px; border: 3px solid var(--rose-gold); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="color: var(--rose-gold); font-size: 1.8rem; margin-bottom: 20px;" id="philosophy-title">My Philosophy</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(106, 90, 205, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--rose-gold);">
+                        <h4 style="color: var(--pastel-purple); margin-bottom: 10px;" id="philosophy1-title">Healing First</h4>
+                        <p id="philosophy1-text">Every reading is a healing session. We address not just the "what" but the "why" behind your situation.</p>
+                    </div>
+                    <div style="background: rgba(106, 90, 205, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--rose-gold);">
+                        <h4 style="color: var(--pastel-purple); margin-bottom: 10px;" id="philosophy2-title">Practical Guidance</h4>
+                        <p id="philosophy2-text">I provide actionable steps, not just predictions. You'll leave with clear direction for your path forward.</p>
+                    </div>
+                    <div style="background: rgba(106, 90, 205, 0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--rose-gold);">
+                        <h4 style="color: var(--pastel-purple); margin-bottom: 10px;" id="philosophy3-title">Empowerment</h4>
+                        <p id="philosophy3-text">My goal is to help you reclaim your power. You are the creator of your reality, and I'm here to remind you of that.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 25px; background: rgba(224, 191, 184, 0.1); border-radius: 15px; border: 1px solid var(--rose-gold);">
+                <h3 style="color: var(--rose-gold); font-size: 1.8rem; margin-bottom: 15px;" id="ritual-title">About Ritual Salts</h3>
+                <p style="margin-bottom: 15px; font-size: 1.1rem; line-height: 1.8;" id="ritual-text">
+                    In addition to readings, I create and bless ritual salts infused with specific energies. These aren't just pretty salts - they're tools for transformation:
+                </p>
+                <ul style="padding-left: 20px; font-size: 1.1rem; line-height: 1.8;">
+                    <li id="ritual1"><strong>YURA (Love & Self-Love):</strong> Attract love and cultivate self-compassion</li>
+                    <li id="ritual2"><strong>RIKA (Abundance & Wealth):</strong> Open channels for prosperity and opportunities</li>
+                    <li id="ritual3"><strong>SARA (Cleansing & Protection):</strong> Clear negative energy and create protective boundaries</li>
+                </ul>
+                <p style="margin-top: 15px; font-size: 1.1rem; line-height: 1.8;" id="ritual-text2">
+                    Each salt is carefully prepared with intention and can be used in baths, as space cleansers, or in ritual work.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3 style="color: var(--rose-gold); font-size: 1.8rem; margin-bottom: 20px;">YU-RISE</h3>
+        <p style="max-width: 600px; margin: 0 auto 20px; color: var(--pastel-purple);" id="footer-text">
+            Spiritual guidance for those ready to transform their lives. You don't have to navigate your journey alone.
+        </p>
+        
+        <div class="social-links">
+            <a href="#" class="social-icon" id="instagram-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" id="tiktok-link">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="social-icon" id="whatsapp-link">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-icon" id="email-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        
+        <div style="margin-top: 30px; color: var(--pastel-purple); font-size: 0.9rem;">
+            <p id="disclaimer">Readings are for guidance only. You have free will to create your own reality.</p>
+            <p class="copyright">© 2024-2026 YU-RISE | Kak Yuri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notification-text">Booking submitted successfully!</span>
+    </div>
+
+    <!-- Hydrangea Elements -->
+    <div class="hydrangea" style="top: 10%; left: 5%;"></div>
+    <div class="hydrangea" style="top: 20%; right: 10%; animation-delay: 2s;"></div>
+    <div class="hydrangea" style="bottom: 30%; left: 15%; animation-delay: 5s;"></div>
+    <div class="hydrangea" style="bottom: 10%; right: 20%; animation-delay: 8s;"></div>
+    <div class="hydrangea" style="top: 50%; left: 30%; animation-delay: 11s;"></div>
+
+    <script>
+        // ===============================
+        // LANGUAGE MANAGEMENT
+        // ===============================
+        const translations = {
+            en: {
+                // Header
+                subtitle: "Spiritual Healing & Tarot Reading with Kak Yuri",
+                bio: "Hi, I'm <strong>Kak Yuri</strong>! Starting in 2024, I'm here as a survivor who's been through life's darkest moments - toxic relationships, career struggles, and personal battles. I don't want you to get stuck where I was, feeling lost without a way out. As a tarot reader, face reader, palm reader, past life reader, and more, I'm here to help you find clarity and create a better life. I also offer ritual salts to attract love, abundance, and cleansing energy. Let's navigate your path together!",
+                
+                // Navigation
+                navServices: "Services & Pricing",
+                navBooking: "Book a Session",
+                navCalendar: "Availability Calendar",
+                navAbout: "About Me",
+                
+                // Section Titles
+                servicesTitle: "Services & Pricing",
+                bookingTitle: "Book Your Session",
+                calendarTitle: "Availability Calendar 2026",
+                aboutTitle: "About Kak Yuri",
+                
+                // Booking Form
+                personalInfoTitle: "Personal Information",
+                fullnameLabel: "Full Name",
+                emailLabel: "Email Address",
+                phoneLabel: "WhatsApp/Telegram Number",
+                locationLabel: "City & Country",
+                birthdateLabel: "Date of Birth (DD/MM/YYYY)",
+                intlLabel: "Are you booking from outside Indonesia?",
+                intlCheckLabel: "Yes, I'm from outside Indonesia (+5% fee)",
+                
+                serviceSelectTitle: "Select Your Service",
+                serviceTypeLabel: "Service Type",
+                selectDefault: "-- Please select a service --",
+                
+                discountTitle: "Loyal Follower Discount (20%)",
+                discountDesc: "Get 20% off if you follow me on social media! Upload screenshot as proof.",
+                discountIgLabel: "I follow Instagram @yuri_spiritual",
+                discountTiktok1Label: "I follow TikTok @yuri_spiritual",
+                discountTiktok2Label: "I follow TikTok @matrix_yuri",
+                uploadText: "Click to upload screenshot proof (PNG, JPG, Max 5MB)",
+                
+                donationTitle: "Voluntary Donation (Optional)",
+                donationDesc: "I believe in giving back. Add a donation to support those in need.",
+                donationOptionLabel: "Yes, I want to add a donation",
+                donationTypeLabel: "Donation Type",
+                donationDisasterLabel: "Natural Disaster Relief",
+                donationChildrenLabel: "Underprivileged Children",
+                donationNeedyLabel: "People in Need",
+                donationAmountLabel: "Donation Amount (IDR)",
+                
+                calculationTitle: "Price Calculation",
+                basePriceLabel: "Base Service Price:",
+                addonPriceLabel: "Additional Options:",
+                intlFeeLabel: "International Fee (5%):",
+                subtotalLabel: "Subtotal:",
+                discountLabel: "Discount (20%):",
+                donationLabel: "Donation:",
+                totalLabel: "TOTAL PAYMENT:",
+                
+                paymentTitle: "Payment & Confirmation",
+                paymentDesc: "Please transfer the total amount to one of the following accounts:",
+                bankTitle: "Bank Transfer (IDR)",
+                qrisText: "QRIS (Domestic & International) will be sent via WhatsApp after booking",
+                transferDateLabel: "Transfer Date",
+                transferAmountLabel: "Transfer Amount (IDR)",
+                paymentUploadText: "Click to upload payment proof (PNG, JPG, PDF, Max 10MB)",
+                
+                submitBtn: "Complete Booking",
+                
+                // Calendar
+                calendarYear: "2026",
+                todayBtnText: "Today",
+                sunHeader: "Sun",
+                monHeader: "Mon",
+                tueHeader: "Tue",
+                wedHeader: "Wed",
+                thuHeader: "Thu",
+                friHeader: "Fri",
+                satHeader: "Sat",
+                
+                legendAvailable: "Available (5 regular + 3 express)",
+                legendBooked: "Fully Booked",
+                legendLimited: "Limited Slots (1-3 left)",
+                legendClosed: "Past Date / Closed",
+                legendHoliday: "Holiday / Special Day",
+                calendarNote: "Note: Each day has a maximum of 8 sessions (5 regular + 3 express). Booking is confirmed only after full payment verification.",
+                
+                // About Section
+                journeyTitle: "My Spiritual Journey",
+                journeyText: "Hey there! I'm Yuri, but you can call me <strong>Kak Yuri</strong>. My journey into the spiritual world began from a place of deep personal struggle. As a survivor of toxic relationships, career setbacks, and emotional trauma, I know what it feels like to be stuck in darkness without seeing a way out.",
+                journeyText2: "In 2024, I decided to turn my pain into purpose. I immersed myself in various spiritual practices - tarot, face reading, palmistry, past life regression, and more. Each modality became a tool not just for divination, but for healing and empowerment.",
+                journeyText3: "My mission is simple: <strong>I don't want anyone to feel as lost as I once did.</strong> Whether you're navigating relationship challenges, career crossroads, or personal transformation, I'm here to help you find clarity and create the life you deserve.",
+                
+                philosophyTitle: "My Philosophy",
+                philosophy1Title: "Healing First",
+                philosophy1Text: "Every reading is a healing session. We address not just the 'what' but the 'why' behind your situation.",
+                philosophy2Title: "Practical Guidance",
+                philosophy2Text: "I provide actionable steps, not just predictions. You'll leave with clear direction for your path forward.",
+                philosophy3Title: "Empowerment",
+                philosophy3Text: "My goal is to help you reclaim your power. You are the creator of your reality, and I'm here to remind you of that.",
+                
+                ritualTitle: "About Ritual Salts",
+                ritualText: "In addition to readings, I create and bless ritual salts infused with specific energies. These aren't just pretty salts - they're tools for transformation:",
+                ritual1: "<strong>YURA (Love & Self-Love):</strong> Attract love and cultivate self-compassion",
+                ritual2: "<strong>RIKA (Abundance & Wealth):</strong> Open channels for prosperity and opportunities",
+                ritual3: "<strong>SARA (Cleansing & Protection):</strong> Clear negative energy and create protective boundaries",
+                ritualText2: "Each salt is carefully prepared with intention and can be used in baths, as space cleansers, or in ritual work.",
+                
+                // Footer
+                footerText: "Spiritual guidance for those ready to transform their lives. You don't have to navigate your journey alone.",
+                disclaimer: "Readings are for guidance only. You have free will to create your own reality."
+            },
+            id: {
+                // Header
+                subtitle: "Penyembuhan Spiritual & Pembacaan Tarot dengan Kak Yuri",
+                bio: "Hai, aku <strong>Kak Yuri</strong>! Mulai tahun 2024, aku hadir sebagai penyintas yang telah melewati momen-momen tergelap dalam hidup - hubungan toxic, pergumulan karir, dan pertempuran pribadi. Aku tidak ingin kamu terjebak di tempatku dulu, merasa tersesat tanpa jalan keluar. Sebagai pembaca tarot, pembaca wajah, pembaca telapak tangan, pembaca kehidupan masa lalu, dan lainnya, aku di sini untuk membantumu menemukan kejelasan dan menciptakan kehidupan yang lebih baik. Aku juga menawarkan garam ritual untuk menarik cinta, kelimpahan, dan energi pembersihan. Mari jelajahi jalanmu bersama!",
+                
+                // Navigation
+                navServices: "Layanan & Harga",
+                navBooking: "Pesan Sesi",
+                navCalendar: "Kalender Ketersediaan",
+                navAbout: "Tentang Saya",
+                
+                // Section Titles
+                servicesTitle: "Layanan & Harga",
+                bookingTitle: "Pesan Sesi Anda",
+                calendarTitle: "Kalender Ketersediaan 2026",
+                aboutTitle: "Tentang Kak Yuri",
+                
+                // Booking Form
+                personalInfoTitle: "Data Pribadi",
+                fullnameLabel: "Nama Lengkap",
+                emailLabel: "Alamat Email",
+                phoneLabel: "Nomor WhatsApp/Telegram",
+                locationLabel: "Kota & Negara",
+                birthdateLabel: "Tanggal Lahir (DD/MM/YYYY)",
+                intlLabel: "Apakah Anda memesan dari luar Indonesia?",
+                intlCheckLabel: "Ya, saya dari luar Indonesia (+5% biaya tambahan)",
+                
+                serviceSelectTitle: "Pilih Layanan Anda",
+                serviceTypeLabel: "Jenis Layanan",
+                selectDefault: "-- Silakan pilih layanan --",
+                
+                discountTitle: "Diskon Follower Setia (20%)",
+                discountDesc: "Dapatkan diskon 20% jika Anda mengikuti saya di media sosial! Unggah screenshot sebagai bukti.",
+                discountIgLabel: "Saya follow Instagram @yuri_spiritual",
+                discountTiktok1Label: "Saya follow TikTok @yuri_spiritual",
+                discountTiktok2Label: "Saya follow TikTok @matrix_yuri",
+                uploadText: "Klik untuk mengunggah bukti screenshot (PNG, JPG, Maks 5MB)",
+                
+                donationTitle: "Donasi Sukarela (Opsional)",
+                donationDesc: "Saya percaya pada memberi kembali. Tambahkan donasi untuk mendukung mereka yang membutuhkan.",
+                donationOptionLabel: "Ya, saya ingin menambahkan donasi",
+                donationTypeLabel: "Jenis Donasi",
+                donationDisasterLabel: "Bantuan Bencana Alam",
+                donationChildrenLabel: "Anak-anak Kurang Mampu",
+                donationNeedyLabel: "Orang yang Membutuhkan",
+                donationAmountLabel: "Jumlah Donasi (IDR)",
+                
+                calculationTitle: "Perhitungan Harga",
+                basePriceLabel: "Harga Dasar Layanan:",
+                addonPriceLabel: "Opsi Tambahan:",
+                intlFeeLabel: "Biaya Internasional (5%):",
+                subtotalLabel: "Subtotal:",
+                discountLabel: "Diskon (20%):",
+                donationLabel: "Donasi:",
+                totalLabel: "TOTAL PEMBAYARAN:",
+                
+                paymentTitle: "Pembayaran & Konfirmasi",
+                paymentDesc: "Silakan transfer jumlah total ke salah satu akun berikut:",
+                bankTitle: "Transfer Bank (IDR)",
+                qrisText: "QRIS (Domestik & Internasional) akan dikirim via WhatsApp setelah pemesanan",
+                transferDateLabel: "Tanggal Transfer",
+                transferAmountLabel: "Jumlah Transfer (IDR)",
+                paymentUploadText: "Klik untuk mengunggah bukti pembayaran (PNG, JPG, PDF, Maks 10MB)",
+                
+                submitBtn: "Selesaikan Pemesanan",
+                
+                // Calendar
+                calendarYear: "2026",
+                todayBtnText: "Hari Ini",
+                sunHeader: "Ming",
+                monHeader: "Sen",
+                tueHeader: "Sel",
+                wedHeader: "Rab",
+                thuHeader: "Kam",
+                friHeader: "Jum",
+                satHeader: "Sab",
+                
+                legendAvailable: "Tersedia (5 reguler + 3 express)",
+                legendBooked: "Terbooking Penuh",
+                legendLimited: "Slot Terbatas (tersisa 1-3)",
+                legendClosed: "Tanggal Terlewat / Tutup",
+                legendHoliday: "Hari Libur / Hari Spesial",
+                calendarNote: "Catatan: Setiap hari maksimal 8 sesi (5 reguler + 3 express). Booking dikonfirmasi hanya setelah verifikasi pembayaran penuh.",
+                
+                // About Section
+                journeyTitle: "Perjalanan Spiritual Saya",
+                journeyText: "Halo! Saya Yuri, tapi Anda bisa memanggil saya <strong>Kak Yuri</strong>. Perjalanan saya ke dunia spiritual dimulai dari tempat pergumulan pribadi yang mendalam. Sebagai penyintas hubungan toxic, kemunduran karir, dan trauma emosional, saya tahu bagaimana rasanya terjebak dalam kegelapan tanpa melihat jalan keluar.",
+                journeyText2: "Pada tahun 2024, saya memutuskan untuk mengubah rasa sakit saya menjadi tujuan. Saya membenamkan diri dalam berbagai praktik spiritual - tarot, membaca wajah, palmistri, regresi kehidupan masa lalu, dan lainnya. Setiap modalitas menjadi alat tidak hanya untuk ramalan, tetapi untuk penyembuhan dan pemberdayaan.",
+                journeyText3: "Misi saya sederhana: <strong>Saya tidak ingin siapa pun merasa tersesat seperti saya dulu.</strong> Apakah Anda sedang menghadapi tantangan hubungan, persimpangan karir, atau transformasi pribadi, saya di sini untuk membantu Anda menemukan kejelasan dan menciptakan kehidupan yang Anda layak dapatkan.",
+                
+                philosophyTitle: "Filosofi Saya",
+                philosophy1Title: "Penyembuhan Pertama",
+                philosophy1Text: "Setiap pembacaan adalah sesi penyembuhan. Kami membahas tidak hanya 'apa' tetapi 'mengapa' di balik situasi Anda.",
+                philosophy2Title: "Panduan Praktis",
+                philosophy2Text: "Saya memberikan langkah-langkah yang dapat ditindaklanjuti, bukan hanya prediksi. Anda akan pergi dengan arahan yang jelas untuk jalan ke depan Anda.",
+                philosophy3Title: "Pemberdayaan",
+                philosophy3Text: "Tujuan saya adalah membantu Anda mengambil kembali kekuatan Anda. Anda adalah pencipta realitas Anda, dan saya di sini untuk mengingatkan Anda akan hal itu.",
+                
+                ritualTitle: "Tentang Garam Ritual",
+                ritualText: "Selain pembacaan, saya membuat dan memberkati garam ritual yang diresapi dengan energi spesifik. Ini bukan hanya garam yang cantik - mereka adalah alat untuk transformasi:",
+                ritual1: "<strong>YURA (Cinta & Cinta Diri):</strong> Menarik cinta dan menumbuhkan kasih sayang pada diri sendiri",
+                ritual2: "<strong>RIKA (Kelimpahan & Kekayaan):</strong> Membuka saluran untuk kemakmuran dan peluang",
+                ritual3: "<strong>SARA (Pembersihan & Perlindungan):</strong> Membersihkan energi negatif dan menciptakan batasan perlindungan",
+                ritualText2: "Setiap garam disiapkan dengan hati-hati dengan niat dan dapat digunakan dalam mandi, sebagai pembersih ruang, atau dalam pekerjaan ritual.",
+                
+                // Footer
+                footerText: "Bimbingan spiritual bagi mereka yang siap untuk mengubah hidup mereka. Anda tidak harus menjalani perjalanan Anda sendirian.",
+                disclaimer: "Pembacaan hanya untuk panduan. Anda memiliki kehendak bebas untuk menciptakan realitas Anda sendiri."
+            },
+            kr: {
+                // Header
+                subtitle: "카크 유리와의 영적 치유 및 타로 리딩",
+                bio: "안녕하세요, 저는 <strong>카크 유리</strong>입니다! 2024년부터 시작하여, 저는 인생의 가장 어두운 순간들 - 독성 관계, 직장에서의 고군분투, 개인적인 전투 - 을 겪은 생존자로 여기에 있습니다. 저는 여러분이 제가 갇혀 있던 곳에 갇히지 않도록, 탈출구 없이 길을 잃은 느낌을 받지 않도록 하고 싶습니다. 타로 리더, 얼굴 읽기, 손금 읽기, 전생 읽기 등으로서 저는 여러분이 명확성을 찾고 더 나은 삶을 창조하도록 돕기 위해 여기에 있습니다. 저는 또한 사랑, 풍요, 정화 에너지를 끌어들이기 위한 의식용 소금을 제공합니다. 함께 여러분의 길을 탐색해 봅시다!",
+                
+                // Navigation
+                navServices: "서비스 및 가격",
+                navBooking: "세션 예약",
+                navCalendar: "예약 가능 일정",
+                navAbout: "나에 대해",
+                
+                // Section Titles
+                servicesTitle: "서비스 및 가격",
+                bookingTitle: "세션 예약하기",
+                calendarTitle: "2026년 예약 가능 일정",
+                aboutTitle: "카크 유리에 대해",
+                
+                // Booking Form
+                personalInfoTitle: "개인 정보",
+                fullnameLabel: "성함",
+                emailLabel: "이메일 주소",
+                phoneLabel: "WhatsApp/Telegram 번호",
+                locationLabel: "도시 및 국가",
+                birthdateLabel: "생년월일 (DD/MM/YYYY)",
+                intlLabel: "인도네시아 외부에서 예약하시나요?",
+                intlCheckLabel: "예, 인도네시아 외부에서 예약합니다 (+5% 추가 요금)",
+                
+                serviceSelectTitle: "서비스 선택",
+                serviceTypeLabel: "서비스 유형",
+                selectDefault: "-- 서비스를 선택해 주세요 --",
+                
+                discountTitle: "충성스러운 팔로워 할인 (20%)",
+                discountDesc: "소셜 미디어에서 저를 팔로우하면 20% 할인! 증거로 스크린샷을 업로드하세요.",
+                discountIgLabel: "Instagram @yuri_spiritual 팔로우합니다",
+                discountTiktok1Label: "TikTok @yuri_spiritual 팔로우합니다",
+                discountTiktok2Label: "TikTok @matrix_yuri 팔로우합니다",
+                uploadText: "스크린샷 증거 업로드 (PNG, JPG, 최대 5MB)",
+                
+                donationTitle: "자발적 기부 (선택사항)",
+                donationDesc: "저는 되돌려 주는 것을 믿습니다. 필요한 사람들을 지원하기 위해 기부를 추가하세요.",
+                donationOptionLabel: "예, 기부를 추가하고 싶습니다",
+                donationTypeLabel: "기부 유형",
+                donationDisasterLabel: "자연 재해 구호",
+                donationChildrenLabel: "어려운 아이들",
+                donationNeedyLabel: "어려운 사람들",
+                donationAmountLabel: "기부 금액 (IDR)",
+                
+                calculationTitle: "가격 계산",
+                basePriceLabel: "기본 서비스 가격:",
+                addonPriceLabel: "추가 옵션:",
+                intlFeeLabel: "국제 수수료 (5%):",
+                subtotalLabel: "소계:",
+                discountLabel: "할인 (20%):",
+                donationLabel: "기부:",
+                totalLabel: "총 결제 금액:",
+                
+                paymentTitle: "결제 및 확인",
+                paymentDesc: "총 금액을 다음 계좌 중 하나로 이체해 주세요:",
+                bankTitle: "은행 송금 (IDR)",
+                qrisText: "QRIS (국내 및 국제)는 예약 후 WhatsApp으로 발송됩니다",
+                transferDateLabel: "이체 날짜",
+                transferAmountLabel: "이체 금액 (IDR)",
+                paymentUploadText: "결제 증명 업로드 (PNG, JPG, PDF, 최대 10MB)",
+                
+                submitBtn: "예약 완료",
+                
+                // Calendar
+                calendarYear: "2026",
+                todayBtnText: "오늘",
+                sunHeader: "일",
+                monHeader: "월",
+                tueHeader: "화",
+                wedHeader: "수",
+                thuHeader: "목",
+                friHeader: "금",
+                satHeader: "토",
+                
+                legendAvailable: "예약 가능 (5 일반 + 3 익스프레스)",
+                legendBooked: "완전 예약됨",
+                legendLimited: "제한된 슬롯 (1-3 남음)",
+                legendClosed: "지난 날짜 / 종료",
+                legendHoliday: "휴일 / 특별한 날",
+                calendarNote: "참고: 매일 최대 8세션(5 일반 + 3 익스프레스). 예약은 전액 결제 확인 후에만 확정됩니다.",
+                
+                // About Section
+                journeyTitle: "나의 영적 여정",
+                journeyText: "안녕하세요! 저는 유리이지만, <strong>카크 유리</strong>라고 불러주세요. 영적 세계로의 저의 여정은 깊은 개인적인 투쟁의 장소에서 시작되었습니다. 독성 관계, 직장에서의 좌절, 정서적 트라우마의 생존자로서, 저는 탈출구 없이 어둠 속에 갇힌 느낌이 어떤 것인지 알고 있습니다.",
+                journeyText2: "2024년에 저는 제 고통을 목적을 위한 것으로 바꾸기로 결정했습니다. 저는 다양한 영적 실천 - 타로, 얼굴 읽기, 손금 읽기, 전생 회귀 등 - 에 몰두했습니다. 각 양식은 단순히 점을 보는 도구가 아닌 치유와 권한 부여를 위한 도구가 되었습니다.",
+                journeyText3: "제 사명은 간단합니다: <strong>저는 누구도 제가 한때 그랬던 것처럼 길을 잃는 느낌을 받지 않기를 바랍니다.</strong> 관계 도전, 직장의 갈림길, 또는 개인적인 변화를 탐색하고 계시든, 저는 여러분이 명확성을 찾고 마땅히 누릴 삶을 창조하도록 돕기 위해 여기에 있습니다.",
+                
+                philosophyTitle: "나의 철학",
+                philosophy1Title: "치유 첫째",
+                philosophy1Text: "모든 리딩은 치유 세션입니다. 우리는 단지 '무엇'이 아니라 상황 뒤의 '왜'를 다룹니다.",
+                philosophy2Title: "실용적인 지도",
+                philosophy2Text: "저는 단지 예측이 아닌 실행 가능한 단계를 제공합니다. 여러분은 앞으로 나아갈 길에 대한 명확한 방향을 가지고 떠나게 될 것입니다.",
+                philosophy3Title: "권한 부여",
+                philosophy3Text: "제 목표는 여러분이 여러분의 힘을 되찾도록 돕는 것입니다. 여러분은 여러분의 현실의 창조자이며, 저는 그것을 상기시켜 드리기 위해 여기에 있습니다.",
+                
+                ritualTitle: "의식용 소금에 대해",
+                ritualText: "리딩 외에도, 저는 특정 에너지로 가득 찬 의식용 소금을 만들고 축복합니다. 이것들은 단지 예쁜 소금이 아닙니다 - 변화를 위한 도구입니다:",
+                ritual1: "<strong>YURA (사랑 & 자기 사랑):</strong> 사랑을 끌어들이고 자기 연민을 키웁니다",
+                ritual2: "<strong>RIKA (풍요 & 부):</strong> 번영과 기회를 위한 통로를 엽니다",
+                ritual3: "<strong>SARA (정화 & 보호):</strong> 부정적인 에너지를 정화하고 보호 경계를 만듭니다",
+                ritualText2: "각 소금은 의도를 가지고 조심스럽게 준비되며 목욕, 공간 정화제, 또는 의식 작업에 사용할 수 있습니다.",
+                
+                // Footer
+                footerText: "삶을 변화시킬 준비가 된 이들을 위한 영적 안내. 여러분은 혼자 여정을 탐색할 필요가 없습니다.",
+                disclaimer: "리딩은 안내 목적으로만 제공됩니다. 여러분은 자신의 현실을 창조할 자유 의지를 가지고 있습니다."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update all text elements
+            document.getElementById('subtitle').textContent = translations[lang].subtitle;
+            document.getElementById('bio-text').innerHTML = translations[lang].bio;
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach((btn, index) => {
+                const sections = ['navServices', 'navBooking', 'navCalendar', 'navAbout'];
+                if (translations[lang][sections[index]]) {
+                    btn.textContent = translations[lang][sections[index]];
+                }
+            });
+            
+            // Update section titles
+            document.getElementById('services-title').textContent = translations[lang].servicesTitle;
+            document.getElementById('booking-title').textContent = translations[lang].bookingTitle;
+            document.getElementById('calendar-title').textContent = translations[lang].calendarTitle;
+            document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+            
+            // Update booking form
+            document.getElementById('personal-info-title').textContent = translations[lang].personalInfoTitle;
+            document.getElementById('fullname-label').textContent = translations[lang].fullnameLabel;
+            document.getElementById('email-label').textContent = translations[lang].emailLabel;
+            document.getElementById('phone-label').textContent = translations[lang].phoneLabel;
+            document.getElementById('location-label').textContent = translations[lang].locationLabel;
+            document.getElementById('birthdate-label').textContent = translations[lang].birthdateLabel;
+            document.getElementById('intl-label').textContent = translations[lang].intlLabel;
+            document.getElementById('intl-check-label').textContent = translations[lang].intlCheckLabel;
+            
+            document.getElementById('service-select-title').textContent = translations[lang].serviceSelectTitle;
+            document.getElementById('service-type-label').textContent = translations[lang].serviceTypeLabel;
+            document.getElementById('select-default').textContent = translations[lang].selectDefault;
+            
+            document.getElementById('discount-title').textContent = translations[lang].discountTitle;
+            document.getElementById('discount-desc').textContent = translations[lang].discountDesc;
+            document.getElementById('discount-ig-label').textContent = translations[lang].discountIgLabel;
+            document.getElementById('discount-tiktok1-label').textContent = translations[lang].discountTiktok1Label;
+            document.getElementById('discount-tiktok2-label').textContent = translations[lang].discountTiktok2Label;
+            document.getElementById('upload-text').textContent = translations[lang].uploadText;
+            
+            document.getElementById('donation-title').textContent = translations[lang].donationTitle;
+            document.getElementById('donation-desc').textContent = translations[lang].donationDesc;
+            document.getElementById('donation-option-label').textContent = translations[lang].donationOptionLabel;
+            document.getElementById('donation-type-label').textContent = translations[lang].donationTypeLabel;
+            document.getElementById('donation-disaster-label').textContent = translations[lang].donationDisasterLabel;
+            document.getElementById('donation-children-label').textContent = translations[lang].donationChildrenLabel;
+            document.getElementById('donation-needy-label').textContent = translations[lang].donationNeedyLabel;
+            document.getElementById('donation-amount-label').textContent = translations[lang].donationAmountLabel;
+            
+            document.getElementById('calculation-title').textContent = translations[lang].calculationTitle;
+            document.getElementById('base-price-label').textContent = translations[lang].basePriceLabel;
+            document.getElementById('addon-price-label').textContent = translations[lang].addonPriceLabel;
+            document.getElementById('intl-fee-label').textContent = translations[lang].intlFeeLabel;
+            document.getElementById('subtotal-label').textContent = translations[lang].subtotalLabel;
+            document.getElementById('discount-label').textContent = translations[lang].discountLabel;
+            document.getElementById('donation-label').textContent = translations[lang].donationLabel;
+            document.getElementById('total-label').textContent = translations[lang].totalLabel;
+            
+            document.getElementById('payment-title').textContent = translations[lang].paymentTitle;
+            document.getElementById('payment-desc').textContent = translations[lang].paymentDesc;
+            document.getElementById('bank-title').textContent = translations[lang].bankTitle;
+            document.getElementById('qris-text').textContent = translations[lang].qrisText;
+            document.getElementById('transfer-date-label').textContent = translations[lang].transferDateLabel;
+            document.getElementById('transfer-amount-label').textContent = translations[lang].transferAmountLabel;
+            document.getElementById('payment-upload-text').textContent = translations[lang].paymentUploadText;
+            
+            document.getElementById('submit-btn').textContent = translations[lang].submitBtn;
+            
+            // Update calendar
+            document.getElementById('today-btn').textContent = translations[lang].todayBtnText;
+            document.getElementById('sun-header').textContent = translations[lang].sunHeader;
+            document.getElementById('mon-header').textContent = translations[lang].monHeader;
+            document.getElementById('tue-header').textContent = translations[lang].tueHeader;
+            document.getElementById('wed-header').textContent = translations[lang].wedHeader;
+            document.getElementById('thu-header').textContent = translations[lang].thuHeader;
+            document.getElementById('fri-header').textContent = translations[lang].friHeader;
+            document.getElementById('sat-header').textContent = translations[lang].satHeader;
+            
+            document.getElementById('legend-available').textContent = translations[lang].legendAvailable;
+            document.getElementById('legend-booked').textContent = translations[lang].legendBooked;
+            document.getElementById('legend-limited').textContent = translations[lang].legendLimited;
+            document.getElementById('legend-closed').textContent = translations[lang].legendClosed;
+            document.getElementById('legend-holiday').textContent = translations[lang].legendHoliday;
+            document.getElementById('calendar-note').textContent = translations[lang].calendarNote;
+            
+            // Update about section
+            document.getElementById('journey-title').textContent = translations[lang].journeyTitle;
+            document.getElementById('journey-text').innerHTML = translations[lang].journeyText;
+            document.getElementById('journey-text2').innerHTML = translations[lang].journeyText2;
+            document.getElementById('journey-text3').innerHTML = translations[lang].journeyText3;
+            
+            document.getElementById('philosophy-title').textContent = translations[lang].philosophyTitle;
+            document.getElementById('philosophy1-title').textContent = translations[lang].philosophy1Title;
+            document.getElementById('philosophy1-text').textContent = translations[lang].philosophy1Text;
+            document.getElementById('philosophy2-title').textContent = translations[lang].philosophy2Title;
+            document.getElementById('philosophy2-text').textContent = translations[lang].philosophy2Text;
+            document.getElementById('philosophy3-title').textContent = translations[lang].philosophy3Title;
+            document.getElementById('philosophy3-text').textContent = translations[lang].philosophy3Text;
+            
+            document.getElementById('ritual-title').textContent = translations[lang].ritualTitle;
+            document.getElementById('ritual-text').textContent = translations[lang].ritualText;
+            document.getElementById('ritual1').innerHTML = translations[lang].ritual1;
+            document.getElementById('ritual2').innerHTML = translations[lang].ritual2;
+            document.getElementById('ritual3').innerHTML = translations[lang].ritual3;
+            document.getElementById('ritual-text2').textContent = translations[lang].ritualText2;
+            
+            // Update footer
+            document.getElementById('footer-text').textContent = translations[lang].footerText;
+            document.getElementById('disclaimer').textContent = translations[lang].disclaimer;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            
+            // Update service options based on language
+            displayServices();
+        }
+
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
+            
+            // Language button event listeners
+            document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+            document.getElementById('lang-id').addEventListener('click', () => setLanguage('id'));
+            document.getElementById('lang-kr').addEventListener('click', () => setLanguage('kr'));
+        });
+
+        // ===============================
+        // SERVICES DATA - COMPLETE LIST
+        // ===============================
+        const servicesData = [
+            {
+                id: 1,
+                title: {
+                    en: "NON-INTERACTIVE TAROT READING",
+                    id: "BACA TAROT NON-INTERAKTIF",
+                    kr: "비대화형 타로 리딩"
+                },
+                series: {
+                    en: "Series: Laras Semesta",
+                    id: "Seri: Laras Semesta",
+                    kr: "시리즈: Laras Semesta"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Regular Price (H-1)",
+                            id: "Harga Reguler (H-1)",
+                            kr: "정가 (H-1)"
+                        },
+                        items: [
+                            { desc: { en: "1 question (Chat Detail)", id: "1 pertanyaan (CHAT DETAIL)", kr: "1개 질문 (채팅 상세)" }, price: 37757 },
+                            { desc: { en: "2 questions (Chat Detail)", id: "2 pertanyaan (CHAT DETAIL)", kr: "2개 질문 (채팅 상세)" }, price: 72727 },
+                            { desc: { en: "3 questions (Chat Detail)", id: "3 pertanyaan (CHAT DETAIL)", kr: "3개 질문 (채팅 상세)" }, price: 101010 }
+                        ]
+                    },
+                    {
+                        type: {
+                            en: "Express Price",
+                            id: "Harga Express",
+                            kr: "익스프레스 가격"
+                        },
+                        items: [
+                            { desc: { en: "1 question (Chat Detail)", id: "1 pertanyaan (CHAT DETAIL)", kr: "1개 질문 (채팅 상세)" }, price: 67676 },
+                            { desc: { en: "2 questions (Chat Detail)", id: "2 pertanyaan (CHAT DETAIL)", kr: "2개 질문 (채팅 상세)" }, price: 121212 },
+                            { desc: { en: "3 questions (Chat Detail)", id: "3 pertanyaan (CHAT DETAIL)", kr: "3개 질문 (채팅 상세)" }, price: 171717 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "+ Add Neat PDF", id: "+ Tambah PDF RAPIH", kr: "+ 정리된 PDF 추가" }, price: 25000 }
+                ],
+                note: {
+                    en: "*H-1 means booking at least 1 day in advance",
+                    id: "*H-1 berarti booking minimal H-1 (1 hari sebelumnya)",
+                    kr: "*H-1은 최소 1일 전에 예약하는 것을 의미합니다"
+                }
+            },
+            {
+                id: 2,
+                title: {
+                    en: "VENTING & ADVICE (NO CARDS)",
+                    id: "CURHAT & SARAN (TANPA KARTU)",
+                    kr: "상담 및 조언 (카드 없음)"
+                },
+                series: {
+                    en: "Series: Angin Teduh",
+                    id: "Seri: Angin Teduh",
+                    kr: "시리즈: Angin Teduh"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Session Duration",
+                            id: "Durasi Layanan",
+                            kr: "세션 시간"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes chat", id: "30 menit chat", kr: "30분 채팅" }, price: 55555 },
+                            { desc: { en: "60 minutes chat", id: "60 menit chat", kr: "60분 채팅" }, price: 88888 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "+ Add Summary PDF", id: "+ Tambah SUMMARY PDF RAPIH", kr: "+ 요약 PDF 추가" }, price: 30000 }
+                ],
+                note: {
+                    en: "*Deep reading + cards available in other catalog",
+                    id: "*Deep reading + kartu tersedia di katalog lain",
+                    kr: "*심층 리딩 + 카드는 다른 카탈로그에서 이용 가능"
+                }
+            },
+            {
+                id: 3,
+                title: {
+                    en: "INTERACTIVE CHAT TAROT",
+                    id: "TAROT INTERAKTIF CHAT",
+                    kr: "대화형 채팅 타로"
+                },
+                series: {
+                    en: "Series: Angin Senja",
+                    id: "Seri: Angin Senja",
+                    kr: "시리즈: Angin Senja"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Regular Price (H-1)",
+                            id: "Harga Reguler (H-1)",
+                            kr: "정가 (H-1)"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes", id: "30 menit", kr: "30분" }, price: 111111 },
+                            { desc: { en: "60 minutes", id: "60 menit", kr: "60분" }, price: 171717 }
+                        ]
+                    },
+                    {
+                        type: {
+                            en: "Express Price",
+                            id: "Harga Express",
+                            kr: "익스프레스 가격"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes", id: "30 menit", kr: "30분" }, price: 171717 },
+                            { desc: { en: "60 minutes", id: "60 menit", kr: "60분" }, price: 232323 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "+ Add Summary PDF", id: "+ Tambah RINGKASAN PDF RAPIH", kr: "+ 요약 PDF 추가" }, price: 40000 }
+                ]
+            },
+            {
+                id: 4,
+                title: {
+                    en: "INTERACTIVE PHONE TAROT",
+                    id: "TAROT INTERAKTIF TELEPON",
+                    kr: "대화형 전화 타로"
+                },
+                series: {
+                    en: "Series: Batara Rasa",
+                    id: "Seri: Batara Rasa",
+                    kr: "시리즈: Batara Rasa"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Regular Price (H-1)",
+                            id: "Harga Reguler (H-1)",
+                            kr: "정가 (H-1)"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes", id: "30 menit", kr: "30분" }, price: 151515 },
+                            { desc: { en: "60 minutes", id: "60 menit", kr: "60분" }, price: 232323 }
+                        ]
+                    },
+                    {
+                        type: {
+                            en: "Express Price",
+                            id: "Harga Express",
+                            kr: "익스프레스 가격"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes", id: "30 menit", kr: "30분" }, price: 212121 },
+                            { desc: { en: "60 minutes", id: "60 menit", kr: "60분" }, price: 333333 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "+ Add Summary PDF", id: "+ Tambah RINGKASAN PDF RAPIH", kr: "+ 요약 PDF 추가" }, price: 50000 }
+                ]
+            },
+            {
+                id: 5,
+                title: {
+                    en: "VIDEO CALL TAROT",
+                    id: "TAROT VIDEO CALL",
+                    kr: "영상통화 타로"
+                },
+                series: {
+                    en: "Series: Telaga Batin",
+                    id: "Seri: Telaga Batin",
+                    kr: "시리즈: Telaga Batin"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Regular Price (H-1)",
+                            id: "Harga Reguler (H-1)",
+                            kr: "정가 (H-1)"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes", id: "30 menit", kr: "30분" }, price: 191919 },
+                            { desc: { en: "60 minutes", id: "60 menit", kr: "60분" }, price: 292929 }
+                        ]
+                    },
+                    {
+                        type: {
+                            en: "Express Price",
+                            id: "Harga Express",
+                            kr: "익스프레스 가격"
+                        },
+                        items: [
+                            { desc: { en: "30 minutes", id: "30 menit", kr: "30분" }, price: 262626 },
+                            { desc: { en: "60 minutes", id: "60 menit", kr: "60분" }, price: 393939 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "+ Add Summary PDF", id: "+ Tambah RINGKASAN PDF RAPIH", kr: "+ 요약 PDF 추가" }, price: 60000 }
+                ]
+            },
+            {
+                id: 6,
+                title: {
+                    en: "FACE READING",
+                    id: "FACE READING",
+                    kr: "얼굴 읽기"
+                },
+                series: {
+                    en: "Series: Kopi Nusantara",
+                    id: "Seri: Kopi Nusantara",
+                    kr: "시리즈: Kopi Nusantara"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Kopi Tubruk)", id: "CHAT DETAIL (Kopi Tubruk)", kr: "채팅 상세 (Kopi Tubruk)" }, price: 65565 },
+                            { desc: { en: "SOFT FILE PDF (Kopi Susu Gula Aren)", id: "SOFT FILE PDF RAPIH (Kopi Susu Gula Aren)", kr: "정리된 PDF 파일 (Kopi Susu Gula Aren)" }, price: 111111 },
+                            { desc: { en: "PDF + 30min Consultation (Kopi Luwak)", id: "PDF + Konsultasi 30 Menit (Kopi Luwak)", kr: "PDF + 30분 상담 (Kopi Luwak)" }, price: 171717 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 45000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 30000 }
+                ]
+            },
+            {
+                id: 7,
+                title: {
+                    en: "FACE COMPATIBILITY",
+                    id: "FACE KOMPATIBILITAS",
+                    kr: "얼굴 궁합"
+                },
+                series: {
+                    en: "Series: Kopi Nusantara",
+                    id: "Seri: Kopi Nusantara",
+                    kr: "시리즈: Kopi Nusantara"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 88888 },
+                            { desc: { en: "CHAT DETAIL (Ex)", id: "CHAT DETAIL (Mantan)", kr: "채팅 상세 (전 애인)" }, price: 99999 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 121212 },
+                            { desc: { en: "SOFT FILE PDF (Ex)", id: "SOFT FILE PDF RAPIH (Mantan)", kr: "정리된 PDF 파일 (전 애인)" }, price: 131313 },
+                            { desc: { en: "PDF + 30min Consultation (Spouse)", id: "PDF + Konsultasi 30 Menit (Suami/Istri)", kr: "PDF + 30분 상담 (배우자)" }, price: 171717 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 45000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 50000 }
+                ]
+            },
+            {
+                id: 8,
+                title: {
+                    en: "PALM READING",
+                    id: "PALM READING",
+                    kr: "손금 읽기"
+                },
+                series: {
+                    en: "Series: Gunung Nusantara",
+                    id: "Seri: Gunung Nusantara",
+                    kr: "시리즈: Gunung Nusantara"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Gunung Bromo)", id: "CHAT DETAIL (Gunung Bromo)", kr: "채팅 상세 (Gunung Bromo)" }, price: 75000 },
+                            { desc: { en: "SOFT FILE PDF (Gunung Rinjani)", id: "SOFT FILE PDF RAPIH (Gunung Rinjani)", kr: "정리된 PDF 파일 (Gunung Rinjani)" }, price: 125000 },
+                            { desc: { en: "PDF + 30min Consultation (Gunung Krakatau)", id: "PDF + Konsultasi 30 Menit (Gunung Krakatau)", kr: "PDF + 30분 상담 (Gunung Krakatau)" }, price: 185000 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 50000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 35000 }
+                ]
+            },
+            {
+                id: 9,
+                title: {
+                    en: "PALM READING COMPATIBILITY",
+                    id: "PALM READING KOMPATIBILITAS",
+                    kr: "손금 궁합"
+                },
+                series: {
+                    en: "Series: Gunung Nusantara",
+                    id: "Seri: Gunung Nusantara",
+                    kr: "시리즈: Gunung Nusantara"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 99999 },
+                            { desc: { en: "CHAT DETAIL (Ex)", id: "CHAT DETAIL (Mantan)", kr: "채팅 상세 (전 애인)" }, price: 111111 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 141414 },
+                            { desc: { en: "SOFT FILE PDF (Ex)", id: "SOFT FILE PDF RAPIH (Mantan)", kr: "정리된 PDF 파일 (전 애인)" }, price: 161161 },
+                            { desc: { en: "PDF + 30min Consultation (Spouse)", id: "PDF + Konsultasi 30 Menit (Suami/Istri)", kr: "PDF + 30분 상담 (배우자)" }, price: 191919 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 55000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 65000 }
+                ]
+            },
+            {
+                id: 10,
+                title: {
+                    en: "MATRIX READING",
+                    id: "MATRIX READING",
+                    kr: "매트릭스 리딩"
+                },
+                series: {
+                    en: "Series: Kalender Langit",
+                    id: "Seri: Kalender Langit",
+                    kr: "시리즈: Kalender Langit"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Aksara Semesta)", id: "CHAT DETAIL (Aksara Semesta)", kr: "채팅 상세 (Aksara Semesta)" }, price: 111111 },
+                            { desc: { en: "SOFT FILE PDF (Rembulan Bersinar)", id: "SOFT FILE PDF RAPIH (Rembulan Bersinar)", kr: "정리된 PDF 파일 (Rembulan Bersinar)" }, price: 222222 },
+                            { desc: { en: "PDF + 30min Consultation (Galaxy Milkyway)", id: "PDF + Konsultasi 30 Menit (Galaxy Milkyway)", kr: "PDF + 30분 상담 (Galaxy Milkyway)" }, price: 333333 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 60000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 45000 }
+                ]
+            },
+            {
+                id: 11,
+                title: {
+                    en: "MATRIX READING COMPATIBILITY",
+                    id: "MATRIX READING KOMPATIBILITAS",
+                    kr: "매트릭스 궁합"
+                },
+                series: {
+                    en: "Series: Kalender Langit",
+                    id: "Seri: Kalender Langit",
+                    kr: "시리즈: Kalender Langit"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 124241 },
+                            { desc: { en: "CHAT DETAIL (Ex)", id: "CHAT DETAIL (Mantan)", kr: "채팅 상세 (전 애인)" }, price: 143341 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 179971 },
+                            { desc: { en: "SOFT FILE PDF (Ex)", id: "SOFT FILE PDF RAPIH (Mantan)", kr: "정리된 PDF 파일 (전 애인)" }, price: 232323 },
+                            { desc: { en: "PDF + 30min Consultation (Spouse)", id: "PDF + Konsultasi 30 Menit (Suami/Istri)", kr: "PDF + 30분 상담 (배우자)" }, price: 378873 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 65000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 85000 }
+                ]
+            },
+            {
+                id: 12,
+                title: {
+                    en: "WETON READING",
+                    id: "WETON READING",
+                    kr: "웨톤 리딩"
+                },
+                series: {
+                    en: "Series: Adat Jawa",
+                    id: "Seri: Adat Jawa",
+                    kr: "시리즈: Adat Jawa"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Selametan)", id: "CHAT DETAIL (Selametan)", kr: "채팅 상세 (Selametan)" }, price: 99999 },
+                            { desc: { en: "SOFT FILE PDF (Mitoni)", id: "SOFT FILE PDF RAPIH (Mitoni)", kr: "정리된 PDF 파일 (Mitoni)" }, price: 171717 },
+                            { desc: { en: "PDF + 30min Consultation (Tedhak Siten)", id: "PDF + Konsultasi 30 Menit (Tedhak Siten)", kr: "PDF + 30분 상담 (Tedhak Siten)" }, price: 232323 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 55000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 55000 }
+                ]
+            },
+            {
+                id: 13,
+                title: {
+                    en: "WETON READING COMPATIBILITY",
+                    id: "WETON READING KOMPATIBILITAS",
+                    kr: "웨톤 궁합"
+                },
+                series: {
+                    en: "Series: Adat Jawa",
+                    id: "Seri: Adat Jawa",
+                    kr: "시리즈: Adat Jawa"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 111111 },
+                            { desc: { en: "CHAT DETAIL (Ex)", id: "CHAT DETAIL (Mantan)", kr: "채팅 상세 (전 애인)" }, price: 164461 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 189981 },
+                            { desc: { en: "SOFT FILE PDF (Ex)", id: "SOFT FILE PDF RAPIH (Mantan)", kr: "정리된 PDF 파일 (전 애인)" }, price: 232323 },
+                            { desc: { en: "PDF + 30min Consultation (Spouse)", id: "PDF + Konsultasi 30 Menit (Suami/Istri)", kr: "PDF + 30분 상담 (배우자)" }, price: 378873 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 60000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 75000 }
+                ]
+            },
+            {
+                id: 14,
+                title: {
+                    en: "HUMAN DESIGN READING",
+                    id: "HUMAN DESIGN READING",
+                    kr: "휴먼 디자인 리딩"
+                },
+                series: {
+                    en: "Series: Cetak Biru Ilahi",
+                    id: "Seri: Cetak Biru Ilahi",
+                    kr: "시리즈: Cetak Biru Ilahi"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Blueprint Basic)", id: "CHAT DETAIL (Blueprint Basic)", kr: "채팅 상세 (Blueprint Basic)" }, price: 151515 },
+                            { desc: { en: "SOFT FILE PDF (Detailed Chart Report)", id: "SOFT FILE PDF RAPIH (Detailed Chart Report)", kr: "정리된 PDF 파일 (Detailed Chart Report)" }, price: 252525 },
+                            { desc: { en: "PDF + 45min Consultation (Life Strategy Session)", id: "PDF + Konsultasi 45 Menit (Life Strategy Session)", kr: "PDF + 45분 상담 (Life Strategy Session)" }, price: 353535 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 70000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 75000 }
+                ]
+            },
+            {
+                id: 15,
+                title: {
+                    en: "HUMAN DESIGN COMPATIBILITY",
+                    id: "HUMAN DESIGN KOMPATIBILITAS",
+                    kr: "휴먼 디자인 궁합"
+                },
+                series: {
+                    en: "Series: Cetak Biru Ilahi",
+                    id: "Seri: Cetak Biru Ilahi",
+                    kr: "시리즈: Cetak Biru Ilahi"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 212121 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 343434 },
+                            { desc: { en: "PDF + 45min Consultation (Spouse)", id: "PDF + Konsultasi 45 Menit (Suami/Istri)", kr: "PDF + 45분 상담 (배우자)" }, price: 474747 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 85000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 95000 }
+                ]
+            },
+            {
+                id: 16,
+                title: {
+                    en: "SHIO & CHINESE ZODIAC READING",
+                    id: "SHIO & ZODIAK CINA READING",
+                    kr: "시오 & 중국 별자리 리딩"
+                },
+                series: {
+                    en: "Series: Lunar Harmony",
+                    id: "Seri: Lunar Harmony",
+                    kr: "시리즈: Lunar Harmony"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Shio Insight)", id: "CHAT DETAIL (Shio Insight)", kr: "채팅 상세 (Shio Insight)" }, price: 88888 },
+                            { desc: { en: "SOFT FILE PDF (Lunar Forecast)", id: "SOFT FILE PDF RAPIH (Lunar Forecast)", kr: "정리된 PDF 파일 (Lunar Forecast)" }, price: 144444 },
+                            { desc: { en: "PDF + 30min Consultation (Harmony Guide)", id: "PDF + Konsultasi 30 Menit (Harmony Guide)", kr: "PDF + 30분 상담 (Harmony Guide)" }, price: 199999 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 45000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 40000 }
+                ]
+            },
+            {
+                id: 17,
+                title: {
+                    en: "SHIO COMPATIBILITY",
+                    id: "SHIO KOMPATIBILITAS",
+                    kr: "시오 궁합"
+                },
+                series: {
+                    en: "Series: Lunar Harmony",
+                    id: "Seri: Lunar Harmony",
+                    kr: "시리즈: Lunar Harmony"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 111111 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 177777 },
+                            { desc: { en: "PDF + 30min Consultation (Spouse)", id: "PDF + Konsultasi 30 Menit (Suami/Istri)", kr: "PDF + 30분 상담 (배우자)" }, price: 244444 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 50000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 50000 }
+                ]
+            },
+            {
+                id: 18,
+                title: {
+                    en: "BAZI / EIGHT CHARACTERS READING",
+                    id: "BAZI / EIGHT CHARACTERS READING",
+                    kr: "바지 / 여덟 글자 리딩"
+                },
+                series: {
+                    en: "Series: Pilar Takdir",
+                    id: "Seri: Pilar Takdir",
+                    kr: "시리즈: Pilar Takdir"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Pilar Dasar)", id: "CHAT DETAIL (Pilar Dasar)", kr: "채팅 상세 (Pilar Dasar)" }, price: 166666 },
+                            { desc: { en: "SOFT FILE PDF (Analisis Lengkap)", id: "SOFT FILE PDF RAPIH (Analisis Lengkap)", kr: "정리된 PDF 파일 (Analisis Lengkap)" }, price: 277777 },
+                            { desc: { en: "PDF + 45min Consultation (Konsultasi Nasib)", id: "PDF + Konsultasi 45 Menit (Konsultasi Nasib)", kr: "PDF + 45분 상담 (Konsultasi Nasib)" }, price: 388888 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 75000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 80000 }
+                ]
+            },
+            {
+                id: 19,
+                title: {
+                    en: "BAZI COMPATIBILITY",
+                    id: "BAZI KOMPATIBILITAS",
+                    kr: "바지 궁합"
+                },
+                series: {
+                    en: "Series: Pilar Takdir",
+                    id: "Seri: Pilar Takdir",
+                    kr: "시리즈: Pilar Takdir"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush)", id: "CHAT DETAIL (Gebetan)", kr: "채팅 상세 (짝사랑)" }, price: 222222 },
+                            { desc: { en: "SOFT FILE PDF (Partner)", id: "SOFT FILE PDF RAPIH (Pacar)", kr: "정리된 PDF 파일 (연인)" }, price: 366666 },
+                            { desc: { en: "PDF + 45min Consultation (Spouse)", id: "PDF + Konsultasi 45 Menit (Suami/Istri)", kr: "PDF + 45분 상담 (배우자)" }, price: 511111 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 90000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 100000 }
+                ]
+            },
+            {
+                id: 20,
+                title: {
+                    en: "PAST LIFE READING",
+                    id: "PAST LIFE READING",
+                    kr: "전생 리딩"
+                },
+                series: {
+                    en: "Series: Nostalgia Abadi",
+                    id: "Seri: Nostalgia Abadi",
+                    kr: "시리즈: Nostalgia Abadi"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Reading Format",
+                            id: "Format Pembacaan",
+                            kr: "리딩 형식"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Echo of Time)", id: "CHAT DETAIL (Echo of Time)", kr: "채팅 상세 (Echo of Time)" }, price: 131313 },
+                            { desc: { en: "SOFT FILE PDF (Chronicles of Soul)", id: "SOFT FILE PDF RAPIH (Chronicles of Soul)", kr: "정리된 PDF 파일 (Chronicles of Soul)" }, price: 212121 },
+                            { desc: { en: "PDF + 30min Consultation (Reincarnation Dialog)", id: "PDF + Konsultasi 30 Menit (Reincarnation Dialog)", kr: "PDF + 30분 상담 (Reincarnation Dialog)" }, price: 303030 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 60000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 65000 }
+                ]
+            },
+            {
+                id: 21,
+                title: {
+                    en: "PAST LIFE COMPATIBILITY",
+                    id: "PAST LIFE KOMPATIBILITAS",
+                    kr: "전생 궁합"
+                },
+                series: {
+                    en: "Series: Nostalgia Abadi",
+                    id: "Seri: Nostalgia Abadi",
+                    kr: "시리즈: Nostalgia Abadi"
+                },
+                prices: [
+                    {
+                        type: {
+                            en: "Relationship Compatibility",
+                            id: "Relasi Kecocokan",
+                            kr: "관계 궁합"
+                        },
+                        items: [
+                            { desc: { en: "CHAT DETAIL (Crush/Partner)", id: "CHAT DETAIL (Gebetan/Pacar)", kr: "채팅 상세 (짝사랑/연인)" }, price: 171717 },
+                            { desc: { en: "SOFT FILE PDF (Partner/Spouse)", id: "SOFT FILE PDF RAPIH (Pacar/Suami/Istri)", kr: "정리된 PDF 파일 (연인/배우자)" }, price: 282828 },
+                            { desc: { en: "PDF + 30min Consultation (Spouse/Family)", id: "PDF + Konsultasi 30 Menit (Suami/Istri/Keluarga)", kr: "PDF + 30분 상담 (배우자/가족)" }, price: 393939 }
+                        ]
+                    }
+                ],
+                addons: [
+                    { desc: { en: "Upgrade to PDF", id: "Upgrade ke PDF", kr: "PDF로 업그레이드" }, price: 75000 },
+                    { desc: { en: "Extra Consultation (min. 15min)", id: "Extra Konsultasi Terpisah (Min. 15 menit)", kr: "추가 상담 (최소 15분)" }, price: 85000 }
+                ]
+            }
+        ];
+
+        // ===============================
+        // SERVICES DISPLAY
+        // ===============================
+        function displayServices() {
+            const container = document.getElementById('services-container');
+            container.innerHTML = '';
+            
+            servicesData.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card';
+                
+                let pricesHTML = '';
+                
+                service.prices.forEach(priceGroup => {
+                    pricesHTML += `
+                        <div style="margin-bottom: 15px;">
+                            <div style="color: var(--pastel-purple); font-weight: 500; margin-bottom: 8px;">${priceGroup.type[currentLang]}</div>
+                            ${priceGroup.items.map(item => `
+                                <div class="price-item">
+                                    <span class="price-desc">${item.desc[currentLang]}</span>
+                                    <span class="price-amount">Rp ${item.price.toLocaleString()}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                });
+                
+                let addonsHTML = '';
+                if (service.addons && service.addons.length > 0) {
+                    addonsHTML = `
+                        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed rgba(255,255,255,0.2);">
+                            ${service.addons.map(addon => `
+                                <div class="price-item">
+                                    <span class="price-desc">${addon.desc[currentLang]}</span>
+                                    <span class="price-amount">+ Rp ${addon.price.toLocaleString()}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+                
+                let noteHTML = '';
+                if (service.note) {
+                    noteHTML = `<div class="price-note">${service.note[currentLang]}</div>`;
+                }
+                
+                serviceCard.innerHTML = `
+                    <h3 class="service-title">${service.title[currentLang]}</h3>
+                    <div class="service-series">${service.series[currentLang]}</div>
+                    <div class="service-price">
+                        ${pricesHTML}
+                        ${addonsHTML}
+                        ${noteHTML}
+                    </div>
+                `;
+                
+                container.appendChild(serviceCard);
+            });
+        }
+
+        // ===============================
+        // NAVIGATION
+        // ===============================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Hide all sections
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Show selected section
+                    const sectionId = btn.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                    
+                    // If calendar section, update calendar
+                    if (sectionId === 'calendar') {
+                        updateCalendar();
+                    }
+                });
+            });
+            
+            // Display services initially
+            displayServices();
+            
+            // Initialize booking form
+            initializeBookingForm();
+            
+            // Initialize calendar
+            updateCalendar();
+        });
+
+        // ===============================
+        // BOOKING FORM
+        // ===============================
+        let selectedService = null;
+        let selectedAddons = [];
+        
+        function initializeBookingForm() {
+            // Populate service dropdown
+            const serviceSelect = document.getElementById('service-type');
+            serviceSelect.innerHTML = `<option value="">${translations[currentLang].selectDefault}</option>`;
+            
+            servicesData.forEach(service => {
+                const option = document.createElement('option');
+                option.value = service.id;
+                option.textContent = service.title[currentLang];
+                serviceSelect.appendChild(option);
+            });
+            
+            // Service selection change
+            serviceSelect.addEventListener('change', function() {
+                const serviceId = parseInt(this.value);
+                selectedService = servicesData.find(s => s.id === serviceId);
+                selectedAddons = [];
+                
+                if (selectedService) {
+                    updateServiceOptions();
+                    updatePriceCalculation();
+                    document.getElementById('addon-container').style.display = 'block';
+                } else {
+                    document.getElementById('service-options-container').innerHTML = '';
+                    document.getElementById('addon-container').style.display = 'none';
+                    updatePriceCalculation();
+                }
+            });
+            
+            // International checkbox
+            document.getElementById('international').addEventListener('change', updatePriceCalculation);
+            
+            // Discount checkboxes
+            document.querySelectorAll('input[name="discount"]').forEach(cb => {
+                cb.addEventListener('change', updatePriceCalculation);
+            });
+            
+            // Donation checkbox
+            document.getElementById('donation-option').addEventListener('change', function() {
+                document.getElementById('donation-details').style.display = this.checked ? 'block' : 'none';
+                updatePriceCalculation();
+            });
+            
+            // Donation amount input
+            document.getElementById('donation-amount').addEventListener('input', updatePriceCalculation);
+            
+            // Donation type radios
+            document.querySelectorAll('input[name="donation-type"]').forEach(radio => {
+                radio.addEventListener('change', updatePriceCalculation);
+            });
+            
+            // Form submission
+            document.getElementById('booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate payment proof
+                const paymentFile = document.getElementById('payment-file').files[0];
+                if (!paymentFile) {
+                    showNotification('Please upload payment proof', 'error');
+                    return;
+                }
+                
+                // Validate transfer amount matches calculated total
+                const calculatedTotal = parseFloat(document.getElementById('total-value').textContent.replace('Rp ', '').replace(/,/g, ''));
+                const transferAmount = parseFloat(document.getElementById('transfer-amount').value);
+                
+                if (transferAmount < calculatedTotal) {
+                    showNotification('Transfer amount is less than the required total', 'error');
+                    return;
+                }
+                
+                // Show success notification
+                showNotification('Booking submitted successfully! We will confirm via WhatsApp/email.', 'success');
+                
+                // In a real application, you would send this data to a server
+                const formData = {
+                    name: document.getElementById('fullname').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    service: selectedService ? selectedService.title[currentLang] : '',
+                    total: calculatedTotal,
+                    date: new Date().toISOString()
+                };
+                
+                console.log('Booking submitted:', formData);
+                
+                // Reset form
+                this.reset();
+                document.getElementById('donation-details').style.display = 'none';
+                document.getElementById('addon-container').style.display = 'none';
+                document.getElementById('service-options-container').innerHTML = '';
+                document.getElementById('discount-filename').textContent = '';
+                document.getElementById('payment-filename').textContent = '';
+                selectedService = null;
+                selectedAddons = [];
+                updatePriceCalculation();
+                
+                // Update calendar to reflect new booking
+                updateCalendar();
+            });
+        }
+        
+        function updateServiceOptions() {
+            if (!selectedService) return;
+            
+            const container = document.getElementById('service-options-container');
+            container.innerHTML = '<h4 style="color: var(--pastel-purple); margin-bottom: 15px;">Select Option:</h4>';
+            
+            // Create options grid
+            const optionsGrid = document.createElement('div');
+            optionsGrid.className = 'service-options-grid';
+            
+            // Flatten all price items
+            const allPriceItems = [];
+            selectedService.prices.forEach(priceGroup => {
+                priceGroup.items.forEach(item => {
+                    allPriceItems.push({
+                        desc: item.desc[currentLang],
+                        price: item.price,
+                        group: priceGroup.type[currentLang]
+                    });
+                });
+            });
+            
+            // Create option cards
+            allPriceItems.forEach((item, index) => {
+                const optionCard = document.createElement('div');
+                optionCard.className = 'service-option-card';
+                optionCard.dataset.index = index;
+                
+                optionCard.innerHTML = `
+                    <div class="option-title">${item.desc}</div>
+                    <div class="option-price">${item.group} - Rp ${item.price.toLocaleString()}</div>
+                `;
+                
+                optionCard.addEventListener('click', function() {
+                    // Remove selected class from all cards
+                    document.querySelectorAll('.service-option-card').forEach(card => {
+                        card.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked card
+                    this.classList.add('selected');
+                    
+                    // Update base price
+                    updatePriceCalculation();
+                });
+                
+                optionsGrid.appendChild(optionCard);
+            });
+            
+            container.appendChild(optionsGrid);
+            
+            // Update addon options
+            const addonContainer = document.getElementById('addon-options');
+            addonContainer.innerHTML = '';
+            
+            if (selectedService.addons && selectedService.addons.length > 0) {
+                selectedService.addons.forEach((addon, index) => {
+                    const addonId = `addon-${index}`;
+                    const addonItem = document.createElement('div');
+                    addonItem.className = 'checkbox-item';
+                    
+                    addonItem.innerHTML = `
+                        <input type="checkbox" id="${addonId}" value="${addon.price}">
+                        <label for="${addonId}">${addon.desc[currentLang]} (+ Rp ${addon.price.toLocaleString()})</label>
+                    `;
+                    
+                    addonContainer.appendChild(addonItem);
+                    
+                    // Add event listener
+                    document.getElementById(addonId).addEventListener('change', function() {
+                        if (this.checked) {
+                            selectedAddons.push({ desc: addon.desc[currentLang], price: addon.price });
+                        } else {
+                            selectedAddons = selectedAddons.filter(a => a.desc !== addon.desc[currentLang]);
+                        }
+                        updatePriceCalculation();
+                    });
+                });
+            }
+        }
+        
+        function updatePriceCalculation() {
+            let basePrice = 0;
+            let addonPrice = 0;
+            let intlFee = 0;
+            let discount = 0;
+            let donation = 0;
+            
+            // Base price from selected service option
+            const selectedOption = document.querySelector('.service-option-card.selected');
+            if (selectedOption && selectedService) {
+                const optionIndex = parseInt(selectedOption.dataset.index);
+                // Flatten all price items to find the selected one
+                const allPriceItems = [];
+                selectedService.prices.forEach(priceGroup => {
+                    priceGroup.items.forEach(item => {
+                        allPriceItems.push({
+                            price: item.price
+                        });
+                    });
+                });
+                
+                if (allPriceItems[optionIndex]) {
+                    basePrice = allPriceItems[optionIndex].price;
+                }
+            }
+            
+            // Addon prices
+            selectedAddons.forEach(addon => {
+                addonPrice += addon.price;
+            });
+            
+            // Subtotal
+            let subtotal = basePrice + addonPrice;
+            
+            // International fee
+            if (document.getElementById('international').checked) {
+                intlFee = subtotal * 0.05;
+            }
+            
+            // Update subtotal with international fee
+            subtotal += intlFee;
+            
+            // Discount (20% if any discount checkbox is checked)
+            const discountChecked = document.querySelector('input[name="discount"]:checked');
+            if (discountChecked) {
+                discount = subtotal * 0.20;
+            }
+            
+            // Donation
+            if (document.getElementById('donation-option').checked) {
+                donation = parseFloat(document.getElementById('donation-amount').value) || 0;
+            }
+            
+            // Total
+            const total = subtotal - discount + donation;
+            
+            // Update display
+            document.getElementById('base-price-value').textContent = `Rp ${basePrice.toLocaleString()}`;
+            document.getElementById('addon-price-value').textContent = `Rp ${addonPrice.toLocaleString()}`;
+            document.getElementById('intl-fee-value').textContent = `Rp ${Math.round(intlFee).toLocaleString()}`;
+            document.getElementById('subtotal-value').textContent = `Rp ${Math.round(subtotal).toLocaleString()}`;
+            document.getElementById('discount-value').textContent = `- Rp ${Math.round(discount).toLocaleString()}`;
+            document.getElementById('donation-value').textContent = `Rp ${donation.toLocaleString()}`;
+            document.getElementById('total-value').textContent = `Rp ${Math.round(total).toLocaleString()}`;
+        }
+        
+        function handleDiscountUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('discount-filename').textContent = `Selected: ${file.name}`;
+                // In a real app, you would upload this file to a server
+            }
+        }
+        
+        function handlePaymentUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('payment-filename').textContent = `Selected: ${file.name}`;
+                // In a real app, you would upload this file to a server
+            }
+        }
+
+        // ===============================
+        // CALENDAR
+        // ===============================
+        let currentDate = new Date(2026, 0, 1); // January 2026
+        
+        function updateCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            // Update month/year display
+            const monthNames = {
+                en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                id: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+                kr: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
+            };
+            
+            document.getElementById('current-month-year').textContent = 
+                `${monthNames[currentLang][month]} ${year}`;
+            
+            // Get first day of month and total days
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const today = new Date();
+            
+            // Indonesian and International holidays for 2026 (Updated with correct Ramadan dates)
+            const holidays = [
+                // January
+                { date: new Date(2026, 0, 1), name: { en: "New Year's Day", id: "Tahun Baru Masehi", kr: "새해 첫날" } },
+                { date: new Date(2026, 0, 26), name: { en: "Chinese New Year", id: "Tahun Baru Imlek", kr: "설날" } },
+                
+                // February
+                { date: new Date(2026, 1, 14), name: { en: "Valentine's Day", id: "Hari Valentine", kr: "발렌타인 데이" } },
+                { date: new Date(2026, 1, 18), name: { en: "First Day of Ramadan", id: "Hari Pertama Puasa Ramadan", kr: "라마단 첫날" } },
+                
+                // March
+                { date: new Date(2026, 2, 3), name: { en: "Nyepi (Balinese New Year)", id: "Hari Raya Nyepi", kr: "뉴피(발리 새해)" } },
+                { date: new Date(2026, 2, 19), name: { en: "Eid al-Fitr", id: "Hari Raya Idul Fitri", kr: "이둘 피트리" } },
+                { date: new Date(2026, 2, 20), name: { en: "Eid al-Fitr Holiday", id: "Hari Raya Idul Fitri", kr: "이둘 피트리 휴일" } },
+                { date: new Date(2026, 2, 28), name: { en: "Isra Mi'raj", id: "Isra Mi'raj Nabi Muhammad SAW", kr: "이스라 미라즈" } },
+                
+                // April
+                { date: new Date(2026, 3, 3), name: { en: "Good Friday", id: "Wafat Yesus Kristus", kr: "성금요일" } },
+                { date: new Date(2026, 3, 5), name: { en: "Easter Sunday", id: "Hari Paskah", kr: "부활절" } },
+                
+                // May
+                { date: new Date(2026, 4, 1), name: { en: "International Labor Day", id: "Hari Buruh Internasional", kr: "노동절" } },
+                { date: new Date(2026, 4, 14), name: { en: "Ascension of Jesus Christ", id: "Kenaikan Yesus Kristus", kr: "예수 승천일" } },
+                { date: new Date(2026, 4, 25), name: { en: "Waisak Day", id: "Hari Raya Waisak", kr: "와이삭 데이" } },
+                
+                // June
+                { date: new Date(2026, 5, 1), name: { en: "Pancasila Day", id: "Hari Lahir Pancasila", kr: "판차실라 데이" } },
+                
+                // July
+                { date: new Date(2026, 6, 17), name: { en: "Idul Adha", id: "Hari Raya Idul Adha", kr: "이둘 아드하" } },
+                
+                // August
+                { date: new Date(2026, 7, 17), name: { en: "Indonesian Independence Day", id: "Hari Kemerdekaan RI", kr: "인도네시아 독립기념일" } },
+                
+                // September
+                { date: new Date(2026, 8, 1), name: { en: "Islamic New Year", id: "Tahun Baru Islam 1448 H", kr: "이슬람 새해" } },
+                
+                // October
+                { date: new Date(2026, 9, 13), name: { en: "Prophet Muhammad's Birthday", id: "Maulid Nabi Muhammad SAW", kr: "무함마드 탄생일" } },
+                
+                // November
+                { date: new Date(2026, 10, 25), name: { en: "Christmas", id: "Hari Raya Natal", kr: "크리스마스" } },
+                
+                // December
+                { date: new Date(2026, 11, 25), name: { en: "Christmas Day", id: "Hari Natal", kr: "크리스마스" } },
+                { date: new Date(2026, 11, 31), name: { en: "New Year's Eve", id: "Malam Tahun Baru", kr: "섣달 그믐날" } }
+            ];
+            
+            // Generate calendar
+            const calendarBody = document.getElementById('calendar-body');
+            calendarBody.innerHTML = '';
+            
+            let date = 1;
+            let isFirstWeek = true;
+            
+            // For January 2026, we need to start with December 2025 dates for the first week
+            // But we'll start from the correct first day of January 2026
+            for (let i = 0; i < 6; i++) { // 6 weeks max
+                const row = document.createElement('tr');
+                
+                for (let j = 0; j < 7; j++) { // 7 days
+                    const cell = document.createElement('td');
+                    
+                    if ((i === 0 && j < firstDay) || date > daysInMonth) {
+                        // Empty cell (before first day or after last day)
+                        cell.innerHTML = '';
+                        cell.style.backgroundColor = 'transparent';
+                        cell.style.border = 'none';
+                    } else {
+                        const currentDateObj = new Date(year, month, date);
+                        const dayOfMonth = date;
+                        
+                        // Determine cell status
+                        let status = 'available';
+                        let notes = [];
+                        
+                        // Check if date is in the past (before today)
+                        if (currentDateObj < today && currentDateObj.getDate() !== today.getDate()) {
+                            status = 'closed';
+                            notes.push(translations[currentLang].legendClosed.split(' / ')[0]);
+                        }
+                        
+                        // Check if date is today
+                        const isToday = currentDateObj.toDateString() === today.toDateString();
+                        
+                        // Check for holidays
+                        const holiday = holidays.find(h => 
+                            h.date.getDate() === dayOfMonth && 
+                            h.date.getMonth() === month && 
+                            h.date.getFullYear() === year
+                        );
+                        
+                        if (holiday) {
+                            status = 'holiday';
+                            notes.push(holiday.name[currentLang]);
+                        }
+                        
+                        // Simulate booking status (in real app, this would come from server)
+                        // For January 2026: Most dates are available, only some are booked
+                        if (status === 'available') {
+                            // For January 2026: Only some dates after 22nd have bookings
+                            if (month === 0 && year === 2026) {
+                                if (date <= 22) {
+                                    // All dates before 22nd are available
+                                    status = 'available';
+                                } else if (date === 23 || date === 24 || date === 25) {
+                                    // These dates have some bookings
+                                    const random = Math.random();
+                                    if (random < 0.3) {
+                                        status = 'booked';
+                                        notes.push(translations[currentLang].legendBooked);
+                                    } else if (random < 0.6) {
+                                        status = 'limited';
+                                        notes.push(translations[currentLang].legendLimited);
+                                    }
+                                } else if (date === 30 || date === 31) {
+                                    // These dates are fully booked
+                                    status = 'booked';
+                                    notes.push(translations[currentLang].legendBooked);
+                                }
+                            } else {
+                                // For other months, random status
+                                const randomStatus = Math.random();
+                                if (randomStatus < 0.2) {
+                                    status = 'booked';
+                                    notes.push(translations[currentLang].legendBooked);
+                                } else if (randomStatus < 0.4) {
+                                    status = 'limited';
+                                    notes.push(translations[currentLang].legendLimited);
+                                }
+                            }
+                        }
+                        
+                        // Set cell class and content
+                        cell.className = `day-${status}`;
+                        cell.innerHTML = `
+                            <div class="calendar-day">${dayOfMonth}${isToday ? ' ★' : ''}</div>
+                            ${notes.length > 0 ? `<div class="day-notes">${notes[0]}</div>` : ''}
+                            <div class="day-status">${getStatusText(status)}</div>
+                        `;
+                        
+                        // Add click event for booking
+                        if (status === 'available' || status === 'limited') {
+                            cell.style.cursor = 'pointer';
+                            cell.addEventListener('click', () => {
+                                const monthName = monthNames[currentLang][month];
+                                showNotification(`${translations[currentLang].bookingTitle} for ${dayOfMonth} ${monthName} ${year}`, 'success');
+                                
+                                // In a real app, you would redirect to booking form with pre-selected date
+                                // For now, just show notification
+                            });
+                        }
+                        
+                        date++;
+                    }
+                    
+                    row.appendChild(cell);
+                }
+                
+                calendarBody.appendChild(row);
+                
+                if (date > daysInMonth) {
+                    break;
+                }
+            }
+        }
+        
+        function getStatusText(status) {
+            switch(status) {
+                case 'available': return '8 slots';
+                case 'booked': return 'FULL';
+                case 'limited': return '1-3 left';
+                case 'closed': return 'CLOSED';
+                case 'holiday': return 'HOLIDAY';
+                default: return '';
+            }
+        }
+        
+        // Calendar navigation
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            updateCalendar();
+        });
+        
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            updateCalendar();
+        });
+        
+        document.getElementById('today-btn').addEventListener('click', () => {
+            currentDate = new Date();
+            updateCalendar();
+        });
+
+        // ===============================
+        // NOTIFICATION SYSTEM
+        // ===============================
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            notificationText.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+            
+            // In a real application, you would also send this notification to a server
+            // for email/WhatsApp integration
+            console.log(`Notification: ${message} (${type})`);
+            
+            // Simulate server notification
+            setTimeout(() => {
+                console.log(`[SERVER] Notification sent to admin: ${message}`);
+            }, 1000);
+        }
+
+        // ===============================
+        // INITIALIZE EVERYTHING
+        // ===============================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial language
+            setLanguage('en');
+            
+            // Display services
+            displayServices();
+            
+            // Initialize booking form
+            initializeBookingForm();
+            
+            // Initialize calendar
+            updateCalendar();
+            
+            // Add some sample bookings for demo
+            setTimeout(() => {
+                showNotification("Welcome to YU-RISE! Book your spiritual session today.", "success");
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
